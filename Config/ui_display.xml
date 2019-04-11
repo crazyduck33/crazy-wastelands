@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configs>
+
+<append xpath="/ui_display_info/item_display">
+		<item_display_info display_type="Grenades" display_group="groupAmmo">
+			<display_entry name="Explosion.EntityDamage" title_key="Entity Damage"/>
+			<display_entry name="Explosion.BlockDamage" title_key="statBlockDamage"/>
+			<display_entry name="Explosion.BlastPower" title_key="Blast Power"/>
+			<display_entry name="ExRadius" title_key="statExRadius"/>
+		</item_display_info>
+
+		<crafting_category_list display_type="Grain Processor">
+			<crafting_category name="Grain" icon="ui_game_symbol_coffee" display_name="Grain Processor" />
+		</crafting_category_list>
+		
+		<crafting_category_list display_type="Rustic Smoker">
+			<crafting_category name="Smoker" icon="ui_game_symbol_spatula" display_name="Smoker" icon_color="255,111,0" />
+		</crafting_category_list>
+		
+		<crafting_category_list display_type="Webber Grill">
+			<crafting_category name="Oven" icon="ui_game_symbol_spatula" display_name="Grill" icon_color="255,111,0" />
+		</crafting_category_list>
+
+	</append>
+	
+	</configs>

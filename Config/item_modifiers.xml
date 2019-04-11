@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+<set xpath="/item_modifiers/item_modifier[@name='modGunScopeSmall']/@blocked_tags">shotgun,gunAK47</set>
+<set xpath="/item_modifiers/item_modifier[@name='modGunScopeMedium']/@blocked_tags">shotgun,gunAK47</set>
+<set xpath="/item_modifiers/item_modifier[@name='modGunScopeLarge']/@blocked_tags">shotgun,gunAK47</set>
+<remove xpath="/item_modifiers/item_modifier[@name='modGunButtkick3000']"/>
+<remove xpath="/item_modifiers/item_modifier[@name='modGunButtkick4000']"/>
+
+<append xpath="/item_modifiers">
+	<item_modifier name="modGunButtkick3000" installable_tags="weapon" type="attachment" rarity="1">
+		<property name="CreativeMode" value="Dev"/>
+		<property name="Stacknumber" value="1"/>
+		<property name="CustomIcon" value="gothBootsBlack"/>
+		<property name="CustomIconTint" value="255,0,255"/>
+		<effect_group tiered="false">
+			<passive_effect name="DamageFalloffRange" operation="perc_add" value=".25"/>
+			<passive_effect name="MaxRange" operation="perc_add" value=".25"/>
+			<passive_effect name="SpreadMultiplierHip" operation="perc_add" value="-.25"/>
+			<passive_effect name="WeaponHandling" operation="perc_add" value=".3"/>
+			<passive_effect name="RoundsPerMinute" operation="perc_add" value=".5"/>
+			<passive_effect name="SpreadMultiplierAiming" operation="perc_add" value="-.3"/>
+			<passive_effect name="SpreadMultiplierCrouching" operation="perc_add" value=".4"/>
+			<passive_effect name="SpreadMultiplierHip" operation="perc_add" value=".4"/>
+			<passive_effect name="SpreadMultiplierWalking" operation="perc_add" value=".4"/>
+		</effect_group>
+		<property name="PickupJournalEntry" value="augmentGunsTip"/>
+	</item_modifier>
+	<item_modifier name="modGunButtkick4000" installable_tags="weapon" type="attachment" rarity="1">
+		<property name="CreativeMode" value="Dev"/>
+		<property name="Stacknumber" value="1"/>
+		<property name="CustomIcon" value="gothBootsBlack"/>
+		<property name="CustomIconTint" value="0,0,255"/>
+		<effect_group tiered="false">
+			<passive_effect name="AttributeLevel" operation="base_set" value="10"/>
+			<passive_effect name="SkillLevel" operation="base_set" value="1"/>
+			<passive_effect name="PerkLevel" operation="base_set" value="5"/>
+		</effect_group>
+		<property name="PickupJournalEntry" value="augmentGunsTip"/>
+	</item_modifier>
+		<item_modifier name="Shocking Facts" installable_tags="knife" modifier_tags="damage" type="attachment" rarity="0.5">
+		<property name="Stacknumber" value="1"/>
+		<property name="CustomIcon" value="gothBootsBlack"/>
+		<!--Do double damage to evil / undead-->
+
+		<effect_group name="Power Attack" tiered="false">
+			<requirement name="EntityTagCompare" target="other" tags="zombie"/>
+			<triggered_effect trigger="onSelfSecondaryActionRayHit" action="AddBuff" target="other" buff="buffMeleeShocked"/>
+			<passive_effect name="EntityDamage" operation="perc_add" value="1"/>
+		<!--	<passive_effect name="DismemberChance" operation="base_add" value="0.7" tags="head"/>-->
+		</effect_group>
+		<property name="PickupJournalEntry" value="augmentGunsTip"/>
+	</item_modifier>
+			<item_modifier name="10mm Upgrade" installable_tags="gun" blocked_tags="pistol,revolver" modifier_tags="damage" type="attachment" rarity="0.5">
+		<property name="Stacknumber" value="1"/>
+		<property name="CustomIcon" value="gothBootsBlack"/>
+		<!--Do double damage to evil / undead-->
+		
+		<item_property_overrides name="gunSMG5">
+	<property name="Magazine_items" value="ammo9mmBullet,ammo9mmBulletSteel,10mm Bullet"/>
+		</item_property_overrides>
+		<property name="PickupJournalEntry" value="augmentGunsTip"/>
+	</item_modifier>
+	</append>
+</configs>

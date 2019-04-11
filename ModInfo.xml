@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+	<ModInfo>
+		<Name value="Crazyducks Overhaul Mod" />
+		<Description value="Many Recipes changed, new Recipes added, More Blocks and Items to build and use. Mod include Unity3d Files for Blocks and Items." />
+		<Author value="Crazyduck" />
+		<Version value="6.2" />
+		<Website value="www.crazy-wastelands.de" />
+	</ModInfo>
+</xml>

@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configs>
+
+<append xpath="/buffs">
+	<buff name="ZombiePoisonBuff" hidden="true">
+		<damage_type value="radiation"/>
+		<stack_type value="replace"/>
+		<duration value="120"/>
+		<effect_group>
+			<!-- <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffIsOnFire"/>-->
+
+			<passive_effect name="AttributeLevel" operation="base_subtract" value="1" tags="attStrength"/>
+			<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+
+			<passive_effect name="HealthChangeOT" operation="base_subtract" value="15"/>
+		</effect_group>
+	</buff>
+		<buff name="buffUniqueMeleeShocked" description_key="buffShockedDesc" tooltip_key="buffShockedTooltip" icon="ui_game_symbol_electric_power" name_key="buffShockedName" icon_color="255,0,0">
+		<damage_type value="electrical"/>
+		<stack_type value="replace"/>
+		<duration value="20.5"/>
+		<effect_group>
+			<passive_effect name="HealthChangeOT" operation="base_add" value="-16"/>
+			<passive_effect name="RunSpeed" operation="perc_subtract" value="0.9,0" duration="0,3.2"/>
+			<passive_effect name="WalkSpeed" operation="perc_subtract" value="0.9,0" duration="0,3.2"/>
+			<passive_effect name="CrouchSpeed" operation="perc_subtract" value="0.9,0" duration="0,3.2"/>
+			<passive_effect name="JumpStrength" operation="perc_subtract" value="0.9,0" duration="0,3.2"/>
+
+			<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_electric_shock" local_offset="0,0.75,0"/>
+			<triggered_effect trigger="onSelfEnteredGame" action="AttachParticleEffectToEntity" particle="p_electric_shock" local_offset="0,0.75,0"/>
+
+			<triggered_effect trigger="onSelfDied" action="RemoveParticleEffectFromEntity" particle="p_electric_shock" />
+
+			<triggered_effect trigger="onSelfBuffFinish" action="RemoveParticleEffectFromEntity" particle="p_electric_shock" />
+			<triggered_effect trigger="onSelfBuffRemove" action="RemoveParticleEffectFromEntity" particle="p_electric_shock" />
+			<triggered_effect trigger="onSelfLeaveGame" action="RemoveParticleEffectFromEntity" particle="p_electric_shock" />
+
+			<triggered_effect trigger="onSelfBuffStart" action="PlaySound" target="self" sound="electric_fence_impact" />
+			<triggered_effect trigger="onSelfBuffRemove" action="FadeOutSound" target="self" sound="electric_fence_impact" />
+			<triggered_effect trigger="onSelfLeaveGame" action="StopSound" target="self" sound="electric_fence_impact" />
+		</effect_group>
+	</buff>
+	<buff name="buffMeleeShocked" description_key="buffShockedDesc" tooltip_key="buffShockedTooltip" icon="ui_game_symbol_electric_power" name_key="buffShockedName" icon_color="255,0,0">
+		<damage_type value="electrical"/>
+		<stack_type value="replace"/>
+		<duration value="6.5"/>
+		<effect_group>
+			<passive_effect name="HealthChangeOT" operation="base_add" value="-12"/>
+			<passive_effect name="RunSpeed" operation="perc_subtract" value="0.9,0" duration="0,6.2"/>
+			<passive_effect name="WalkSpeed" operation="perc_subtract" value="0.9,0" duration="0,6.2"/>
+			<passive_effect name="CrouchSpeed" operation="perc_subtract" value="0.9,0" duration="0,6.2"/>
+			<passive_effect name="JumpStrength" operation="perc_subtract" value="0.9,0" duration="0,6.2"/>
+
+			<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_electric_shock" local_offset="0,0.75,0"/>
+			<triggered_effect trigger="onSelfEnteredGame" action="AttachParticleEffectToEntity" particle="p_electric_shock" local_offset="0,0.75,0"/>
+
+			<triggered_effect trigger="onSelfDied" action="RemoveParticleEffectFromEntity" particle="p_electric_shock" />
+
+			<triggered_effect trigger="onSelfBuffFinish" action="RemoveParticleEffectFromEntity" particle="p_electric_shock" />
+			<triggered_effect trigger="onSelfBuffRemove" action="RemoveParticleEffectFromEntity" particle="p_electric_shock" />
+			<triggered_effect trigger="onSelfLeaveGame" action="RemoveParticleEffectFromEntity" particle="p_electric_shock" />
+
+			<triggered_effect trigger="onSelfBuffStart" action="PlaySound" target="self" sound="electric_fence_impact" />
+			<triggered_effect trigger="onSelfBuffRemove" action="FadeOutSound" target="self" sound="electric_fence_impact" />
+			<triggered_effect trigger="onSelfLeaveGame" action="StopSound" target="self" sound="electric_fence_impact" />
+		</effect_group>
+	</buff>
+		<buff name="buffMeleeShockedStrong" description_key="buffShockedDesc" tooltip_key="buffShockedTooltip" icon="ui_game_symbol_electric_power" name_key="buffShockedName" icon_color="255,0,0">
+		<damage_type value="electrical"/>
+		<stack_type value="replace"/>
+		<duration value="12.5"/>
+		<effect_group>
+			<passive_effect name="HealthChangeOT" operation="base_add" value="-18"/>
+			<passive_effect name="RunSpeed" operation="perc_subtract" value="0.9,0" duration="0,12.2"/>
+			<passive_effect name="WalkSpeed" operation="perc_subtract" value="0.9,0" duration="0,12.2"/>
+			<passive_effect name="CrouchSpeed" operation="perc_subtract" value="0.9,0" duration="0,12.2"/>
+			<passive_effect name="JumpStrength" operation="perc_subtract" value="0.9,0" duration="0,12.2"/>
+
+			<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_electric_shock" local_offset="0,0.75,0"/>
+			<triggered_effect trigger="onSelfEnteredGame" action="AttachParticleEffectToEntity" particle="p_electric_shock" local_offset="0,0.75,0"/>
+
+			<triggered_effect trigger="onSelfDied" action="RemoveParticleEffectFromEntity" particle="p_electric_shock" />
+
+			<triggered_effect trigger="onSelfBuffFinish" action="RemoveParticleEffectFromEntity" particle="p_electric_shock" />
+			<triggered_effect trigger="onSelfBuffRemove" action="RemoveParticleEffectFromEntity" particle="p_electric_shock" />
+			<triggered_effect trigger="onSelfLeaveGame" action="RemoveParticleEffectFromEntity" particle="p_electric_shock" />
+
+			<triggered_effect trigger="onSelfBuffStart" action="PlaySound" target="self" sound="electric_fence_impact" />
+			<triggered_effect trigger="onSelfBuffRemove" action="FadeOutSound" target="self" sound="electric_fence_impact" />
+			<triggered_effect trigger="onSelfLeaveGame" action="StopSound" target="self" sound="electric_fence_impact" />
+		</effect_group>
+	</buff>
+		<buff name="buffBurningUniqueWeapon" name_key="buffBurningWeaponName" icon="ui_game_symbol_fire" icon_color="0,255,0" hidden="true">
+		<stack_type value="replace"/>
+		<duration value="18"/>
+
+		<effect_group>
+			<requirement name="RandomRoll" seed_type="Random" target="self" min_max="0,100" operation="LTE" value="30"/>
+			<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddBuff" target="other" buff="buffBurningElement"/>
+		</effect_group>
+
+		<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_torch_wall" local_offset="0,0.3,0" parent_transform="GunJoint"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="p_onFire" local_offset="0,0.3,0" parent_transform="GunJoint"/>
+				<passive_effect name="DegradationPerUse" operation="perc_add" value="1.5"/>
+
+			<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_torch_wall" />
+			<triggered_effect trigger="onSelfBuffRemove" action="RemoveParticleEffectFromEntity" particle="p_torch_wall"/>
+			<triggered_effect trigger="onSelfDied" action="RemoveParticleEffectFromEntity" particle="p_torch_wall" />
+		</effect_group>
+<!--
+			<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="forge_fire_die">
+				<requirement name="HoldingItemHasTags" tags="melee" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="other" buff="buffBurningWeapon"/>
+				<requirement name="HoldingItemHasTags" tags="melee" invert="true"/>
+			</triggered_effect>
+
+			<requirement name="HoldingItemHasTags" tags="melee" />
+
+			<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_onFire"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="RemoveParticleEffectFromEntity" particle="p_onFire"/>
+			<triggered_effect trigger="onSelfDied" action="RemoveParticleEffectFromEntity" particle="p_onFire" />
+-->
+	</buff>
+		<buff name="ElectricProtection" name_key="ElectricProtection" description_key="ElectricProtection" tooltip_key="ElectricProtection" icon="ui_game_symbol_fire" icon_color="255,0,0" icon_blink="true">
+		<damage_type value="electrical"/>
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<update_rate value="1"/>
+		<!-- bookkeeping for all burning buffs -->
+
+		<effect_group> <!-- extinguish any fire if wet or if buffExtinguishFire is executed -->
+			<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffUniqueMeleeShocked"/>
+		</effect_group>
+
+		<!--<effect_group>
+			<requirements>
+				<requirement name="NotHasBuff" buff="buffUniqueMeleeShocked"/>
+			</requirements>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffIsOnFire"/>
+		</effect_group>-->
+	</buff>
+	<!-- NEW BUFFS FOOD -->
+	<!-- STEW BUFFS START -->
+	
+		<buff name="Little Bear" name_key="Little Bear" description_key="10 % more Strength 20 % more Block and Melee Entity Damage 10 % more Damage Resist and 5% more XP" tooltip_key="Who need Spinach" icon="ui_game_symbol_spatula" icon_color="217,217,35" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="600"/>
+			<effect_group>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="Speedy Gonzales"/>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="The Stag King"/>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="Porky Pig"/>
+			<passive_effect name="AttributeLevel" tags="attStrength" operation="base_add" value="1" />
+			<passive_effect name="BlockDamage" operation="perc_add" value="0,2"/>
+			<passive_effect name="EntityDamage" operation="perc_add" value="0.2" tags="melee"/>
+			<passive_effect name="PlayerExpGain" operation="perc_add" value=".05" />
+			<passive_effect name="PhysicalDamageResist" operation="base_add" value="10" tags="coredamageresist"/>
+			<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+		</effect_group>
+	</buff>
+	<buff name="Speedy Gonzales" name_key="Andale" description_key="20 % Run Speed 50% and Walk Speed 50%" tooltip_key="Arriba Arriba Andale" icon="ui_game_symbol_spatula" icon_color="217,217,35" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="900"/>
+		<effect_group>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="Little Bear"/>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="The Stag King"/>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="Porky Pig"/>
+			<passive_effect name="WalkSpeed" operation="perc_add" value=".5"/>
+			<passive_effect name="RunSpeed" operation="perc_add" value=".5"/>
+			<passive_effect name="AttributeLevel" tags="attAgility" operation="base_add" value="1" />
+			<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+		</effect_group> 
+	</buff>
+	<buff name="The Stag King" name_key="The Stag King" description_key="Faster Stamina Regeneration 3% more XP" tooltip_key="The Stag King" icon="ui_game_symbol_spatula" icon_color="217,217,35" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="900"/>
+		<effect_group>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="Little Bear"/>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="Speedy Gonzales"/>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="Porky Pig"/>
+			<passive_effect name="StaminaChangeOT" operation="perc_add" value="0.3"/>
+			<passive_effect name="AttributeLevel" tags="attAgility" operation="base_add" value="1" />
+			<passive_effect name="PlayerExpGain" operation="perc_add" value=".03" />
+			<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+		</effect_group> 
+	</buff>
+	<buff name="Porky Pig" name_key="I think I'm going off my rocker." description_key="Healing and 70 % Resistance against Bleeding and Stunned" tooltip_key="I think I'm going off my rocker." icon="ui_game_symbol_spatula" icon_color="217,217,35" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="600"/>
+		<effect_group>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="Little Bear"/>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="Speedy Gonzales"/>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="The Stag King"/>
+			<passive_effect name="HealthChangeOT" operation="base_add" value="0.233"/>
+			<passive_effect name="BuffResistance" operation="base_add" value="0.70" tags="buffInjuryBleeding,buffInjuryStunned1,buffInjuryStunned2"/>
+			<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+		</effect_group> 
+	</buff>
+	<!-- STEW BUFFS END -->
+	<!-- Raw BUFFS -->
+	<buff name="buffFresh" name_key="" description_key="Fresh is best!" tooltip_key="Fresh produce" icon="ui_game_symbol_book" icon_color="0,255,30" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="5"/>
+		<effect_group>
+			<passive_effect name="StaminaChangeOT" operation="base_add" value="1"/>
+			<passive_effect name="HealthChangeOT" operation="base_add" value="1"/>
+		</effect_group>
+	</buff>
+		<buff name="buffCarbs" name_key="" description_key="Carbs" tooltip_key="Carbo load!" icon="ui_game_symbol_fork" icon_color="0,0,0" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="15"/>
+		<effect_group>
+			<passive_effect name="RunSpeed" operation="perc_add" value="-.1"/>
+			<passive_effect name="WalkSpeed" operation="perc_add" value="-.1"/>
+			<passive_effect name="CriticalChance" operation="perc_add" value=".1"/>
+			<passive_effect name="StaminaChangeOT" operation="base_add" value="2"/>
+			<passive_effect name="HealthChangeOT" operation="base_add" value="2"/>
+		</effect_group>
+	</buff>
+		<buff name="Cheesy" name_key="Say Cheese!" description_key="Say Cheeese. Health and Stamina Regen for 15 Seconds" tooltip_key="CHEEEESSSEEEEEE!" icon="ui_game_symbol_adventure" icon_color="102,83,22" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="15"/>
+		<effect_group>
+			<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<passive_effect name="StaminaChangeOT" operation="base_add" value=".25"/>
+			<passive_effect name="HealthChangeOT" operation="base_add" value=".25"/>
+		</effect_group>
+	</buff>
+	<buff name="buffHealthy" name_key="Healthy Living!" description_key="Removes Infection Debuff. Regenerate Stamina." tooltip_key="Eat well live well!" icon="ui_game_symbol_adventure" icon_color="102,83,22" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="60"/>
+		<effect_group>
+			<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" target="self" buff="buffIllInfection0,buffNightTime">
+				<requirement name="HasBuff" buff="buffHealthy"/>
+			</triggered_effect>
+			<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<passive_effect name="StaminaChangeOT" operation="base_add" value=".25"/>
+		</effect_group>
+	</buff>
+	<buff name="buffAllNatural" name_key="All natural!" description_key="+9 Carry, +10% Harvest Amount 20 % Melee Damage Bonuss." tooltip_key="Aaah, nature!" icon="ui_game_symbol_tree" icon_color="0,153,0" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="120"/>
+		<effect_group>
+			<passive_effect name="CarryCapacity" operation="perc_add" value="9" />
+			<passive_effect name="HarvestCount" operation="base_add" value=".1"/>
+			<passive_effect name="EntityDamage" operation="perc_add" value=".5" >
+				<requirement name="HoldingItemHasTags" tags="melee,fists" />
+			</passive_effect>
+		<!--	<passive_effect name="PhysicalDamageResist" operation="base_subtract" value="10" tags="coredamageresist"/>-->
+		</effect_group>
+	</buff>
+		<buff name="buffBeefcake" name_key="Beefcake" description_key="Strong, with Fists and Melee. -30% walk/run speed, +3 Strength, +Full Carry Cap, +500% Entity Damage/w melee and fists. +90% damage resistance, 0 Stamina Loss, +50% Melee Combat Speed." tooltip_key="Beefcake" icon="ui_game_symbol_muscle" icon_color="153,0,0" icon_blink="true" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="30"/>
+		<effect_group>
+			<passive_effect name="WalkSpeed" operation="perc_subtract" value=".3"/>
+			<passive_effect name="RunSpeed" operation="perc_subtract" value=".3"/>
+			<passive_effect name="RunSpeed" operation="perc_subtract" value=".3"/>
+			<passive_effect name="PhysicalDamageResist" operation="base_add" value="35" tags="coredamageresist"/>
+			<passive_effect name="StaminaLoss" operation="base_set" value="0" tags="primary"/>
+			<passive_effect name="AttacksPerMinute" operation="perc_add" value=".5" >
+				<requirement name="HoldingItemHasTags" tags="melee,fists" />
+			</passive_effect>
+			<passive_effect name="EntityDamage" operation="perc_add" value="5" >
+				<requirement name="HoldingItemHasTags" tags="melee,fists" />
+			</passive_effect>
+			<passive_effect name="AttributeLevel" operation="base_add" value="3" tags="attStrength"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+		</effect_group>
+	</buff>
+	<buff name="buffPumpedUp" name_key="Pumped up!" description_key="Strong as an Ox! -10% walk/run speed, -5% Craft Time, +1 Strength, +Full Carry Cap, +20% Entity Damage/w melee and fists. +25% damage resistance, +10% Combat Speed." tooltip_key="Beefcake" icon="ui_game_symbol_muscle" icon_color="153,0,0" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="90"/>
+		<effect_group>
+			<passive_effect name="WalkSpeed" operation="perc_subtract" value=".1"/>
+			<passive_effect name="RunSpeed" operation="perc_subtract" value=".1"/>
+			<passive_effect name="StaminaLoss" operation="base_add" value="-5" tags="primary"/>
+			<passive_effect name="CarryCapacity" operation="base_set" value="50" />
+			<passive_effect name="AttacksPerMinute" operation="perc_add" value=".1" >
+				<requirement name="HoldingItemHasTags" tags="melee,fists" />
+			</passive_effect>
+			<passive_effect name="EntityDamage" operation="perc_add" value=".5" >
+				<requirement name="HoldingItemHasTags" tags="melee,fists" />
+			</passive_effect>
+			<passive_effect name="PhysicalDamageResist" operation="base_add" value="25" tags="coredamageresist"/>
+			<passive_effect name="AttributeLevel" operation="base_add" value="1" tags="attStrength"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+		</effect_group>
+	</buff>
+		<buff name="buffHotWings" name_key="buffMegaCrushName" description_key="WOW THATS HOT! 200% Run Speed, +20 Health, +50% Stamina Cost, -Heat Resistance, +Cold Resistance." tooltip_key="OH HOT HOT HOT!" icon="ui_game_symbol_fire" icon_color="153,0,0" icon_blink="true" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="10"/>
+		<effect_group>
+			<passive_effect name="RunSpeed" operation="perc_add" value="1"/>
+			<passive_effect name="HealthChangeOT" operation="base_add" value="2"/>
+			<passive_effect name="StaminaLoss" operation="perc_add" value="5" />
+			<passive_effect name="HypothermalResist" operation="base_add" value="65"/>
+			<passive_effect name="HyperthermalResist" operation="base_add" value="-20"/>
+			<passive_effect name="WaterChangeOT" operation="base_subtract" value="2"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="Ragdoll" target="self" duration="1">
+									<requirement name="RandomRoll" seed_type="Random" target="self" min_max="0,100" operation="LTE" value="1"/>
+									<requirement name="HasBuff" buff="buffHotWings"/>
+					</triggered_effect>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffWaterPlease"/>
+		</effect_group>
+	</buff>
+	<buff name="buffWaterPlease" name_key="Water! Please!" description_key="Still smoking! +10% Run speed, +10% Stamina cost, -Heat Resistance, +Cold Resistance." tooltip_key="So thirsty!" icon="ui_game_symbol_fire" icon_color="255,132,0" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="300"/>
+		<effect_group>
+			<passive_effect name="RunSpeed" operation="perc_add" value=".1"/>
+			<passive_effect name="StaminaLoss" operation="perc_add" value=".5" />
+			<passive_effect name="HealthChangeOT" operation="base_add" value=".1"/>
+			<passive_effect name="HypothermalResist" operation="base_add" value="40"/>
+			<passive_effect name="HyperthermalResist" operation="base_set" value="-5"/>
+			<passive_effect name="WaterChangeOT" operation="base_subtract" value="1.5"/>
+		</effect_group>
+	</buff>
+		<buff name="Little Porky Pig" name_key="Little Porky Pig" description_key="Healing and 10 % Resistance against Bleeding and Stunned" tooltip_key="" icon="ui_game_symbol_spatula" icon_color="217,217,35" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="60"/>
+		<effect_group>
+			<passive_effect name="HealthChangeOT" operation="base_add" value="0.133"/>
+			<passive_effect name="BuffResistance" operation="base_add" value="0.10" tags="buffInjuryBleeding,buffInjuryStunned1,buffInjuryStunned2"/>
+			<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+		</effect_group> 
+	</buff>
+	<buff name="buffRiseAndShine" name_key="Rise and Shine!" description_key="+20% walk/run speed, +1 Fort +1 Agi +Stam/HP regen.Removes Infection" tooltip_key="Eat well live well!" icon="ui_game_symbol_coffee" icon_color="102,83,22" icon_blink="true" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="15"/>
+		<effect_group>
+					<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="buffRiseAndShine">
+						<requirement name="HasBuff" buff="buffFatty"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" target="self" buff="buffHealthy">
+						<requirement name="HasBuff" buff="buffRiseAndShine"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" target="self" buff="buffIllInfection0,buffIllInfection1,buffIllInfection2,buffIllInfection3,buffNightTime">
+						<requirement name="HasBuff" buff="buffRiseAndShine"/>
+					</triggered_effect>
+			<passive_effect name="WalkSpeed" operation="perc_add" value="1"/>
+			<passive_effect name="RunSpeed" operation="perc_add" value=".2"/>
+			<passive_effect name="AttributeLevel" tags="attFortitude" operation="base_add" value="1" />
+			<passive_effect name="AttributeLevel" tags="attAgility" operation="base_add" value="1" />
+			<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<passive_effect name="StaminaChangeOT" operation="base_add" value="5" duration="5"/>
+			<passive_effect name="HealthChangeOT" operation="base_add" value="5" duration="5"/>
+		</effect_group>
+	</buff>
+	<buff name="buffIScream" name_key="I Scream" description_key="I Scream" tooltip_key="You Scream" icon="ui_game_symbol_cold" icon_color="0,0,255" icon_blink="true" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="90"/>
+		<effect_group>
+			<passive_effect name="HypothermalResist" operation="base_add" value="-20"/>
+			<passive_effect name="HyperthermalResist" operation="base_set" value="65"/>
+			<passive_effect name="WaterChangeOT" operation="base_add" value="2"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" target="self" buff="buffHotWings,buffWaterPlease">
+						<requirement name="HasBuff" buff="buffIScream"/>
+						<requirement name="RandomRoll" seed_type="Random" target="self" min_max="0,100" operation="LTE" value="50"/>
+					</triggered_effect>
+			<passive_effect name="AttributeLevel" tags="attFortitude" target="selfAOE" operation="base_add" value="3" />
+			<passive_effect name="AttributeLevel" tags="attIntelligence" target="selfAOE" operation="base_add" value="3" />
+			<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+		</effect_group>
+	</buff>
+	<buff name="buffKungFoo" name_key="Waste Foo!" description_key="FIGHT!!!" tooltip_key="WASTE FOO MASTER!" icon="ui_game_symbol_knunchuck" icon_color="153,0,153" icon_blink="true" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="15"/>
+		<effect_group>
+			<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="self" buff="buffDontBreakMyLeg"/>
+			<triggered_effect trigger="onSelfJump" action="PlaySound" sound="mariojump" play_in_head="true"/>
+			<passive_effect name="NoiseMultiplier" operation="perc_subtract" value="1"/>
+			<passive_effect name="ScavengingTime" operation="base_add" value="-1"/>
+			<passive_effect name="RunSpeed" operation="perc_add" value="1"/>
+			<passive_effect name="CrouchSpeed" operation="perc_add" value="2"/>
+			<passive_effect name="JumpStrength" operation="perc_add" value="2" />
+			<passive_effect name="EntityDamage" operation="perc_add" value="4" >
+				<requirement name="HoldingItemHasTags" tags="fists" />
+			</passive_effect>
+			<passive_effect name="StaminaLoss" operation="base_set" value="0" tags="primary,jumping,running">
+				<requirement name="HoldingItemHasTags" tags="fists" />
+			</passive_effect>
+			<passive_effect name="MaxRange" operation="base_set" value="8" >
+				<requirement name="HoldingItemHasTags" tags="fists" />
+			</passive_effect>
+			<passive_effect name="AttacksPerMinute" operation="perc_add" value="10" tags="primary" >	
+				<requirement name="HoldingItemHasTags" tags="fists" />
+			</passive_effect>
+			<passive_effect name="BlockDamage" operation="perc_add" value="10" tags="secondary">
+				<requirement name="HoldingItemHasTags" tags="fists" />
+			</passive_effect>	
+			<triggered_effect trigger="onOtherDamagedSelf" action="RemoveBuff" target="self" buff="buffKungFoo"/>
+		</effect_group>
+		</buff>
+	<!-- Drinks BUFFS START -->
+	<buff name="Yucca Buff" name_key="That´s not really Cold" description_key="Gives 25% Cold Resistance" tooltip_key="That´s not really Cold" icon="ui_game_symbol_spatula" icon_color="217,217,35" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="180"/>
+		<effect_group>
+			<passive_effect name="HypothermalResist" operation="base_add" value="25"/>
+			<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+		</effect_group> 
+	</buff>
+	<buff name="buffDrunky" name_key="Drunky!" description_key="Whoah there buddy. Getting a little over confident there? +50% Entity Damage with melee, -20% Attack Speed, +20% Run speed, +1 STR, -Attack Stamina." tooltip_key="Drunken Fool" icon="ui_game_symbol_beer" icon_color="0,153,0" icon_blink="true" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="45"/>
+		<effect_group>
+			<passive_effect name="RunSpeed" operation="perc_add" value=".2"/>
+			<passive_effect name="AttributeLevel" operation="base_subtract" value="1" tags="attStrength"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<passive_effect name="EntityDamage" operation="perc_add" value="1" tags="melee,fists"/>
+			<passive_effect name="PhysicalDamageResist" operation="base_add" value="20" tags="coredamageresist"/>
+			<passive_effect name="StaminaLoss" operation="base_add" value="15" tags="primary,secondary"/>
+			<passive_effect name="AttacksPerMinute" operation="perc_add" value="-.2" tags="primary,secondary" />
+					<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPuking1">
+									<requirement name="RandomRoll" seed_type="Random" target="self" min_max="0,100" operation="LTE" value="25"/>
+									<requirement name="HasBuff" buff="buffDrunky"/>
+					</triggered_effect>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" intensity="0.4" fade=".8" effect_name="Drunk"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyScreenEffect" intensity=".2" fade=".8" effect_name="Drunk"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" intensity="0" effect_name="Drunk"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="Ragdoll" target="self" duration="3">
+									<requirement name="RandomRoll" seed_type="Random" target="self" min_max="0,100" operation="LTE" value="2"/>
+									<requirement name="HasBuff" buff="buffDrunky"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" target="self" buff="buffHotWings,buffNightTime,buffRiseAndShine,buffHealthy,buffAllNatural,buffIScream">
+						<requirement name="HasBuff" buff="buffDrunky"/>
+					</triggered_effect>
+		</effect_group>
+	</buff>
+	<buff name="StaminaHealBoost" name_key="I Need More" description_key="Health and Stamina Regen for 15 Seconds" tooltip_key="Health and Stamina Regen for 15 Seconds" icon="ui_game_symbol_adventure" icon_color="102,83,22" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="15"/>
+		<effect_group>
+			<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<passive_effect name="StaminaChangeOT" operation="base_add" value=".5"/>
+			<passive_effect name="HealthChangeOT" operation="base_add" value=".4"/>
+			<passive_effect name="StaminaLoss" operation="base_set" value="0" tags=""/>
+		</effect_group>
+	</buff>
+	<buff name="StaminaBoost" name_key="I Need More" description_key="Stamina Regen for 30 Seconds" tooltip_key="Stamina Regen for 30 Seconds" icon="ui_game_symbol_adventure" icon_color="102,83,22" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="30"/>
+		<effect_group>
+			<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<passive_effect name="StaminaChangeOT" operation="base_add" value="1.8"/>
+			<passive_effect name="StaminaLoss" operation="base_set" value="0" tags=""/>
+		</effect_group>
+	</buff>
+	<buff name="buffWaterPlease" name_key="Water! Please!" description_key="Still smoking! +10% Run speed, +10% Stamina cost, -Heat Resistance, +Cold Resistance." tooltip_key="So thirsty!" icon="ui_game_symbol_fire" icon_color="255,132,0" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="300"/>
+		<effect_group>
+			<passive_effect name="RunSpeed" operation="perc_add" value=".1"/>
+			<passive_effect name="StaminaLoss" operation="perc_add" value=".5" />
+			<passive_effect name="HealthChangeOT" operation="base_add" value=".1"/>
+			<passive_effect name="HypothermalResist" operation="base_add" value="40"/>
+			<passive_effect name="HyperthermalResist" operation="base_set" value="-5"/>
+			<passive_effect name="WaterChangeOT" operation="base_subtract" value="1.5"/>
+		</effect_group>
+	</buff>
+	<!-- Event Buffs -->
+		<buff name="RabbitStyle" name_key="Rabbit Style!" description_key="" tooltip_key="Fight like a Rabbit or bettter!" icon="ui_game_symbol_knunchuck" icon_color="153,0,153" icon_blink="true" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="600"/>
+		<effect_group>
+			<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="self" buff="buffDontBreakMyLeg"/>
+			<triggered_effect trigger="onSelfJump" action="PlaySound" sound="mariojump" play_in_head="true"/>
+			<passive_effect name="NoiseMultiplier" operation="perc_subtract" value="1"/>
+			<passive_effect name="ScavengingTime" operation="base_add" value="-1"/>
+			<passive_effect name="RunSpeed" operation="perc_add" value="1"/>
+			<passive_effect name="CrouchSpeed" operation="perc_add" value="2"/>
+			<passive_effect name="JumpStrength" operation="perc_add" value="2" />
+			<passive_effect name="EntityDamage" operation="perc_add" value="5" >
+				<requirement name="HoldingItemHasTags" tags="fists" />
+			</passive_effect>
+			<passive_effect name="StaminaLoss" operation="base_set" value="0" tags="primary,jumping,running">
+				<requirement name="HoldingItemHasTags" tags="fists" />
+			</passive_effect>
+			<passive_effect name="MaxRange" operation="base_set" value="8" >
+				<requirement name="HoldingItemHasTags" tags="fists" />
+			</passive_effect>
+			<passive_effect name="AttacksPerMinute" operation="perc_add" value="20" tags="primary" >	
+				<requirement name="HoldingItemHasTags" tags="fists" />
+			</passive_effect>
+			<passive_effect name="BlockDamage" operation="perc_add" value="10" tags="secondary">
+				<requirement name="HoldingItemHasTags" tags="fists" />
+			</passive_effect>	
+		</effect_group>
+		</buff>
+		<buff name="Rabbit Gonzales" name_key="Rabbit Gonzales" description_key="Fast Faster Gonzales" tooltip_key="Fast Faster Gonzales" icon="ui_game_symbol_spatula" icon_color="217,217,35" tags="drug">
+		<stack_type value="replace"/>
+		<duration value="600"/>
+		<effect_group>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="Little Bear"/>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="The Stag King"/>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="Porky Pig"/>
+			<passive_effect name="WalkSpeed" operation="perc_add" value="10"/>
+			<passive_effect name="RunSpeed" operation="perc_add" value="10"/>
+			<passive_effect name="AttributeLevel" tags="attAgility" operation="base_add" value="5" />
+			<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffPerkAbilityUpdate"/>
+		</effect_group> 
+	</buff>
+</append>
+</configs>
